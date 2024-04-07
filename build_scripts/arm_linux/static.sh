@@ -26,6 +26,6 @@ cmake	-DBUILD_EXAMPLES=ON																	\
 		-DCMAKE_BUILD_TYPE=Release															\
 		${batch_file_path} 
 
-make -j16
+make -j4
 cd ../../
 

@@ -38,6 +38,6 @@ cmake	-DBUILD_EXAMPLES=ON																	\
 		-DCMAKE_TOOLCHAIN_FILE=${batch_file_path}/cmake_add/aarch64_qnx710.toolchain.cmake 	\
 		-DCMAKE_BUILD_TYPE=Release															\
 		${batch_file_path}
-make -j16
+make -j4
 cd ../../
 

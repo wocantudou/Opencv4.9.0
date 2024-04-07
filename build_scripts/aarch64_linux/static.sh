@@ -35,6 +35,6 @@ cmake	-DBUILD_EXAMPLES=ON																	\
 		${batch_file_path} 
 
 # make clean
-make -j16
+make -j4
 cd ../../
 
