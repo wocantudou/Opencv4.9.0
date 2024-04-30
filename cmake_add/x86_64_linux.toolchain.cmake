@@ -1,4 +1,5 @@
-# set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR x86_64)
 #set (PREFIX "/data/wensha2/tool/gcc-4.9.2-os7/bin/")
 set (PREFIX "")
 set (CMAKE_STRIP ${PREFIX}strip CACHE FILEPATH "Strip")
