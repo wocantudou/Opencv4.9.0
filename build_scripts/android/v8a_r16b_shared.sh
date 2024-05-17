@@ -65,7 +65,7 @@ cmake   -DBUILD_EXAMPLES=ON																	\
         -DANDROID_TOOLCHAIN=${androidchain}                                                 \
         "../../"
 #make clean
-make -j4
+make -j2
 
 
 

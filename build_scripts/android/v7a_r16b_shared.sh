@@ -67,6 +67,6 @@ cmake   -DBUILD_EXAMPLES=ON																	\
 
 
 # make clean
-make -j4
+make -j2
 
 cd "../../"
