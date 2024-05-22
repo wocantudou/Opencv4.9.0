@@ -6,7 +6,7 @@ if [ ${with_ffmpeg} == "ON" ];then
 	# MY_FFMPEG_PATH=/data/wensha2/tool/ffmpeg4.2.9/install/x86_64-intellinux64-ffmpeg4.2.9
 	# WSL2
 	MY_FFMPEG_PATH=/home/wensha2/workspace/opt/ffmpeg4.2.9/install/x86_64-intellinux64-ffmpeg4.2.9
-	# export PKG_CONFIG_LIBDIR=${MY_FFMPEG_PATH}/lib/pkgconfig
+	export PKG_CONFIG_LIBDIR=${MY_FFMPEG_PATH}/lib/pkgconfig
 	export PKG_CONFIG_PATH=${MY_FFMPEG_PATH}/lib/pkgconfig
 	# export CMAKE_INCLUDE_PATH=${MY_FFMPEG_PATH}/include:${CMAKE_INCLUDE_PATH}
 	# export CMAKE_LIBRARY_PATH=${MY_FFMPEG_PATH}/lib:${CMAKE_LIBRARY_PATH}
@@ -43,7 +43,7 @@ cmake	-DBUILD_EXAMPLES=ON																	\
 		${batch_file_path}
 		
 # make clean
-make -j2
-cd ../../
+# make -j2
+# cd ../../
 
 

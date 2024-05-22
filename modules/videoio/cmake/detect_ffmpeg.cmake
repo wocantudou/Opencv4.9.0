@@ -1,8 +1,9 @@
 # --- FFMPEG ---
 OCV_OPTION(OPENCV_FFMPEG_ENABLE_LIBAVDEVICE "Include FFMPEG/libavdevice library support." OFF
   VISIBLE_IF WITH_FFMPEG)
-
+  message(STATUS "FFMPEG HERE0 and HAVE_FFMPEG = ${HAVE_FFMPEG}")
 if(NOT HAVE_FFMPEG AND OPENCV_FFMPEG_USE_FIND_PACKAGE)
+  message(STATUS "FFMPEG HERE1")
   if(OPENCV_FFMPEG_USE_FIND_PACKAGE STREQUAL "1" OR OPENCV_FFMPEG_USE_FIND_PACKAGE STREQUAL "ON")
     set(OPENCV_FFMPEG_USE_FIND_PACKAGE "FFMPEG")
   endif()
@@ -13,6 +14,7 @@ if(NOT HAVE_FFMPEG AND OPENCV_FFMPEG_USE_FIND_PACKAGE)
 endif()
 
 if(NOT HAVE_FFMPEG AND WIN32 AND NOT ARM AND NOT OPENCV_FFMPEG_SKIP_DOWNLOAD)
+  message(STATUS "FFMPEG HERE2")
   include("${OpenCV_SOURCE_DIR}/3rdparty/ffmpeg/ffmpeg.cmake")
   download_win_ffmpeg(FFMPEG_CMAKE_SCRIPT)
   if(FFMPEG_CMAKE_SCRIPT)
@@ -24,6 +26,7 @@ endif()
 
 set(_required_ffmpeg_libraries libavcodec libavformat libavutil libswscale)
 set(_used_ffmpeg_libraries ${_required_ffmpeg_libraries})
+message(STATUS "FFMPEG HERE3 and HAVE_FFMPEG = ${HAVE_FFMPEG} and PKG_CONFIG_FOUND = ${PKG_CONFIG_FOUND}")
 if(NOT HAVE_FFMPEG AND PKG_CONFIG_FOUND)
   ocv_check_modules(FFMPEG libavcodec libavformat libavutil libswscale)
   if(FFMPEG_FOUND)
@@ -56,6 +59,7 @@ endif()
 #=================================
 # Versions check.
 if(HAVE_FFMPEG AND NOT HAVE_FFMPEG_WRAPPER)
+  message(STATUS "FFMPEG HERE4")
   set(_min_libavcodec_version 54.35.0)
   set(_min_libavformat_version 54.20.4)
   set(_min_libavutil_version 52.3.0)
@@ -96,6 +100,7 @@ if(HAVE_FFMPEG AND NOT HAVE_FFMPEG_WRAPPER AND NOT OPENCV_FFMPEG_SKIP_BUILD_CHEC
   # {
     if(WITH_FFMPEG)
       set(FFMPEG_PATH "$ENV{PKG_CONFIG_PATH}/../..")
+      message(STATUS "FFMPEG_PATH = ${FFMPEG_PATH}")
       set(FFMPEG_LIBDIR "${FFMPEG_PATH}/lib")
       # include_directories(${FFMPEG_INCLUDE_DIRS})
       link_directories(${FFMPEG_LIBDIR})
